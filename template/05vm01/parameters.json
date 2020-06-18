@@ -1,0 +1,48 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "eastus"
+        },
+        "networkInterfaceName": {
+            "value": "vm01974"
+        },
+        "networkSecurityGroupId": {
+            "value": "/subscriptions/6a537a07-6a03-4d2e-a2b1-d9de007d0e24/resourceGroups/IAAS/providers/Microsoft.Network/networkSecurityGroups/SECURITY-nsg"
+        },
+        "subnetName": {
+            "value": "default"
+        },
+        "virtualNetworkId": {
+            "value": "/subscriptions/6a537a07-6a03-4d2e-a2b1-d9de007d0e24/resourceGroups/LABSECURITY/providers/Microsoft.Network/virtualNetworks/VNETCORP"
+        },
+        "virtualMachineName": {
+            "value": "VM01"
+        },
+        "virtualMachineComputerName": {
+            "value": "VM01"
+        },
+        "virtualMachineRG": {
+            "value": "LABSECURITY"
+        },
+        "osDiskType": {
+            "value": "StandardSSD_LRS"
+        },
+        "virtualMachineSize": {
+            "value": "Standard_B2s"
+        },
+        "adminUsername": {
+            "value": "Azuser1"
+        },
+        "adminPassword": {
+            "value": null
+        },
+        "diagnosticsStorageAccountName": {
+            "value": "labsecuritydiag"
+        },
+        "diagnosticsStorageAccountId": {
+            "value": "/subscriptions/6a537a07-6a03-4d2e-a2b1-d9de007d0e24/resourceGroups/LABSECURITY/providers/Microsoft.Storage/storageAccounts/labsecuritydiag"
+        }
+    }
+}

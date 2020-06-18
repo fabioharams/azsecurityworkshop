@@ -143,15 +143,30 @@ Done! now you can connect from other Virtual Machine on Azure (using Azure Basti
 - Create a Windows Server 2016/2019 VM using the following parameters:
 - - Computer name: WS01
 - - Vnet: VNETCORP
-- - Subnet: Default
+- - Subnet: Default (10.0.0.0/24)
 - - Public IP Address: None
-- - NSG: LABSEC
+- - Configure Network Security Group (NSG): LABSEC
+- - Public Inbound Ports: None
+- - OS Disk Type: Standard SSD
 - - Username: Azuser1
 - - Password: Azsecworkshop!
 
+> Note: The NSG LABSEC and Vnet/Subnet already exists and must be used to accomplish other labs.
+
+
 ### Step 2 | Create Log Analytics workspace ###
 
-[]
+All logs will be forwarded to Log Analytics and it's a requirement for Azure Sentinel, Network Watcher, etc. Follow he steps bellow to create your Log Analytics Workspace.
+
+> 1. Create Workspace
+
+Open Azure Portal, click New and type **Log Analytics Workspace** . Click **Create** and use these parameters:
+
+![img16](/img/img16.png)
+
+![img17](/img/img17.png)
+
+
 
 ### Step 3 | create App Gateway ###
 
