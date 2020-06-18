@@ -1,0 +1,21 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "eastus"
+        },
+        "resourceGroup": {
+            "value": "LABSECURITY"
+        },
+        "bastionHostName": {
+            "value": "BASTIONLABSEC"
+        },
+        "subnetId": {
+            "value": "/subscriptions/6a537a07-6a03-4d2e-a2b1-d9de007d0e24/resourceGroups/LABSECURITY/providers/Microsoft.Network/virtualNetworks/VNETCORP/subnets/AzureBastionSubnet"
+        },
+        "publicIpAddressName": {
+            "value": "VNETBASTION-ip"
+        }
+    }
+}

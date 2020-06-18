@@ -15,23 +15,71 @@ To test this scenario a virtual machine running UBUNTU with DVWA (Damn Vulnerabl
 
 ## Prepare the environment ##
 
-[include requirements]
+1. Create a Resource Group
 
-### step 1 | create resource group ###
+e.g.: LABSECURITY
 
-### step 2 | create vnet ###
+You can use any public region because the features on this lab doesn't require an specific region.  
 
-### step 3 | create subnets ###
+![img1](/img/img1.png)
 
-[Bastion Subnet]
-[Servers]
-[App Gateway Subnet]
-[DVWA Subnet]
+2. Create VNET and Subnets
 
-### step 4 | create Linux VM ###
+Create a VNET in the same region of Resource Group with the following settings bellow:
 
-[Ubuntu18]
- 
+- Name: VNETCORP
+- Region: e.g. EAST US
+- IPv4 Address Space: 10.0.0.0/16
+- Subnets:
+- - default: 10.0.0.0/24
+- - AppGw: 10.0.1.0/24
+- - AzureBastionSubnet: 10.0.2.0/24
+- DDoS Protection: Basic
+- Firewall: Disabled
+- Tags: None
+- 
+
+Note: you can create Bastion Host (and the Subnet) during the creation of VNET. I recommend you to do this later because you can use the same steps to do in other VNETs. Feel free to do if you have more experience on Azure VNET
+
+![img2](/img/img2.png)
+
+3. Create Linux VM for DVWA
+
+- Create a Ubuntu Server 18.04 LTS from Azure Portal
+
+![img3](/img/img3.png)
+
+![img4](/img/img4.png)
+
+- user: Azuser1
+- password: Azsecworkshop!
+
+![img5](/img/img5.png)
+
+![img6](/img/img6.png)
+
+![img7](/img/img7.png)
+
+![img8](/img/img8.png)
+
+![img9](/img/img9.png)
+
+![img10](/img/img10.png)
+
+4. Enable Azure Bastion
+
+Follow these steps to use Azure Bastion. This is importante because the VM was created without Public IP address.
+
+- On Azure Portal click on **"Create a resource"** and then type **BASTION** . Click **"Create"**
+
+![img11](/img/img11.png)
+
+![img12](/img/img12.png)
+
+![img13](/img/img13.png)
+
+Link: https://docs.microsoft.com/en-us/azure/bastion/bastion-create-host-portal
+
 ## Start the lab ##
 
 ### Step 1 | Install DVWA on UBUNTU ###
