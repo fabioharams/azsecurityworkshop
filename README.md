@@ -138,19 +138,18 @@ Return to **home** folder
 
 > <code>sudo cp config/config.inc.php.dist config/config.inc.php</code>
 
-Done! now you can connect from other Virtual Machine on Azure (using Azure Bastion) and test if DVWA is up and running,
+Done! now you can connect from other Virtual Machine on Azure (using Azure Bastion) and test if DVWA is up and running (the setup for DVWA require a browser). The DVWA virtual machine doesn't have a Public IP Address so you will need a VM with browser to access and finish the configuration (or adjust anything else you want on DVWA)
 
+- Create a Windows Server 2016/2019 VM using the following parameters:
+- - Computer name: WS01
+- - Vnet: VNETCORP
+- - Subnet: Default
+- - Public IP Address: None
+- - NSG: LABSEC
+- - Username: Azuser1
+- - Password: Azsecworkshop!
 
-### Step 2 | Create Windows Server VM to finish the configuration of DVWA
-
-The setup for DVWA require a browser. The DVWA virtual machine doesn't have a Public IP Address so you will need a VM with browser to access and finish the configuration (or adjust anything else you want on DVWA)
-
-
-
-
-
-
-### Step 2 | create Log Analytics workspace ###
+### Step 2 | Create Log Analytics workspace ###
 
 []
 
