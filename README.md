@@ -87,7 +87,7 @@ Link: https://docs.microsoft.com/en-us/azure/bastion/bastion-create-host-portal
 
 > ### Step 1 | Install DVWA on UBUNTU ###
 
-DVWA (Damn Vulnerable Web Application) is PHP/MySql web application to train security specialists to test vulnerabilities. For more information about DVWA please click **[here](http://www.dvwa.co.uk/)**.
+DVWA (Damn Vulnerable Web Application) is a PHP/MySql web application very popular to train security specialists against vulnerabilities. For more information about DVWA please click **[here](https://github.com/ethicalhack3r/DVWA)**.
 
 1. Connect to Ubuntu VM using Azure Bastion
 
@@ -96,11 +96,55 @@ Open **Azure Portal**, select the Ubuntu Virtual Machine created previously (**D
 - username: Azuser1
 - password: Azsecworkshop!
 
-> Note: if the new tab doesn't open just check if your browser is not blocking **Pop-Ups**
+> Note1: if the new tab doesn't open just check if your browser is not blocking **Pop-Ups**
+> 
+> Note2: Attention - Linux is case sensitive for username
 
 ![img14](/img/img14.png)
 
 ![img15](/img/img15.png)
+
+2. Update Ubuntu
+
+It's recommended to update Ubuntu (or any Virtual Machine) after installation. Execute the following command to update
+
+> <code> sudo apt update && sudo apt upgrade -y </code> 
+
+3. Download MySQL, PHP and Apache
+
+These packages are required to install DVWA. Just execute the follwing command. Press **Y** to confirm:
+
+> <code>sudo apt install apache2 mysql-server php php-mysqli php-gd libapache2-mod-php git</code>
+
+Return to **home** folder
+
+> <code>cd ~</code>
+
+4. Clone the DVWA repository:
+
+> <code> git clone --recurse-submodules https://github.com/ethicalhack3r/DVWA.git</code>
+
+5. Remove the default web page created by Apache
+
+> <code>sudo rm /var/www/html/index.html</code>
+
+6. Copy the downloaded files to a new folder and after that change to folder
+
+> <code>sudo cp -r ~/DVWA/* /var/www/html/</code>
+
+> <code>cd /var/www/html</code>
+
+7. Copy the config file for DVWA
+
+> <code>sudo cp config/config.inc.php.dist config/config.inc.php</code>
+
+Done! now you can connect from other Virtual Machine on Azure (using Azure Bastion) and test if DVWA is up and running,
+
+
+### Step 2 | Create Windows Server VM to finish the configuration of DVWA
+
+The setup for DVWA require a browser. The DVWA virtual machine doesn't have a Public IP Address so you will need a VM with browser to access and finish the configuration (or adjust anything else you want on DVWA)
+
 
 
 
