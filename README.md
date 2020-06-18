@@ -37,13 +37,12 @@ Create a VNET in the same region of Resource Group with the following settings b
 - DDoS Protection: Basic
 - Firewall: Disabled
 - Tags: None
-- 
 
 Note: you can create Bastion Host (and the Subnet) during the creation of VNET. I recommend you to do this later because you can use the same steps to do in other VNETs. Feel free to do if you have more experience on Azure VNET
 
 ![img2](/img/img2.png)
 
-3. Create Linux VM for DVWA
+1. Create Linux VM for DVWA
 
 - Create a Ubuntu Server 18.04 LTS from Azure Portal
 
@@ -78,7 +77,11 @@ Follow these steps to use Azure Bastion. This is importante because the VM was c
 
 ![img13](/img/img13.png)
 
+> Above you can find more information about how to deploy Azure Bastion. Just remember to use Microsoft Edge/Chrome and disable Pop-ups
+
 Link: https://docs.microsoft.com/en-us/azure/bastion/bastion-create-host-portal
+
+> If you want to automate all the steps to create this environment then you can use the **template** folder located [here](https://github.com/fabioharams/azsecurityworkshop/tree/master/template)
 
 ## Start the lab ##
 
