@@ -85,7 +85,26 @@ Link: https://docs.microsoft.com/en-us/azure/bastion/bastion-create-host-portal
 
 ## Start the lab ##
 
-### Step 1 | Install DVWA on UBUNTU ###
+> ### Step 1 | Install DVWA on UBUNTU ###
+
+DVWA (Damn Vulnerable Web Application) is PHP/MySql web application to train security specialists to test vulnerabilities. For more information about DVWA please click **[here](http://www.dvwa.co.uk/)**.
+
+1. Connect to Ubuntu VM using Azure Bastion
+
+Open **Azure Portal**, select the Ubuntu Virtual Machine created previously (**DVWA**), click **Connect** and select **Bastion**. Insert the following credentials bellow and then click **Connect**
+
+- username: Azuser1
+- password: Azsecworkshop!
+
+> Note: if the new tab doesn't open just check if your browser is not blocking **Pop-Ups**
+
+![img14](/img/img14.png)
+
+![img15](/img/img15.png)
+
+
+
+
 
 ### Step 2 | create Log Analytics workspace ###
 
