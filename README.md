@@ -15,7 +15,7 @@ To test this scenario a virtual machine running UBUNTU with DVWA (Damn Vulnerabl
 
 ## Prepare the environment ##
 
-1. Create a Resource Group
+> 1. Create a Resource Group
 
 e.g.: LABSECURITY
 
@@ -23,7 +23,7 @@ You can use any public region because the features on this lab doesn't require a
 
 ![img1](/img/img1.png)
 
-2. Create VNET and Subnets
+> 2. Create VNET and Subnets
 
 Create a VNET in the same region of Resource Group with the following settings bellow:
 
@@ -42,7 +42,7 @@ Note: you can create Bastion Host (and the Subnet) during the creation of VNET. 
 
 ![img2](/img/img2.png)
 
-1. Create Linux VM for DVWA
+> 3. Create Linux VM for DVWA
 
 - Create a Ubuntu Server 18.04 LTS from Azure Portal
 
@@ -65,7 +65,7 @@ Note: you can create Bastion Host (and the Subnet) during the creation of VNET. 
 
 ![img10](/img/img10.png)
 
-4. Enable Azure Bastion
+> 4. Enable Azure Bastion
 
 Follow these steps to use Azure Bastion. This is importante because the VM was created without Public IP address.
 
