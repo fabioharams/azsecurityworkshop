@@ -395,8 +395,79 @@ Now you can open again the Resource Group **LABSECURITY** and click on **NSG** *
 > Note: Now you have Application Gateway forwarding to DVWA VM and only allowing access from your Public IP. Next step you will forward logs from NSG and Application Gateway to Log Analytics.
 
 
-### Step 4 | Configure Network Watcher ###
+### Step 4 | Forward Logs ###
 
+**Network Watcher** is a network performance monitoring and diagnostics solution on Azure. We will use this solution to forward NSG Logs and Diagnostic logs to Log Analytics workspace.
+
+Firts create a storage account. This will be used to retain logs.
+
+- On **Azure Portal** click **Create a resource** and type **Storage account**. Click **Create**
+
+![img43](/img/img43.png)
+
+- Use the following parameters for **Basics**
+- - Resource Group: LABSECURITY
+- - Storage account name: storagelabsecurity
+- - - Note: you can use other name here, just remeber to take note
+- - Location: East US
+- - Performance: Standard
+- - Account kind: StorageV2 (general purpose v2)
+- - Replication: Locally-redundant storage (LRS)
+- - Access tier (default): Hot
+- Click **Next: Networking**
+
+![img44](/img/img44.png)
+
+- Use the following parameters for **Networking**
+- - Connectivity method: Public endpoint (all networks)
+- - Routing preference: Microsoft networking routing (default)
+- Click **Next: Data protection**
+
+![img45](/img/img45.png)
+
+- Use the following parameters for **Data protection**
+- - Blob soft delete: Disabled
+- - File share soft delete: Disabled
+- - Versioning: Disabled
+- Click **Next: Advanced**
+
+![img46](/img/img46.png)
+
+- Use the following parameters for **Advanced**
+- - Secure transfer required: Enabled
+- - Blob public access: Disabled
+- - Minimum TLS version: Version 1.0
+- - Large file shares: Disabled
+- - Hierarchical namespace: Disabled
+- Click **Review + Create**
+- Click **Create**
+
+![img47](/img/img47.png)
+
+![img48](/img/img48.png)
+
+
+
+> 1. Enable Network Watcher on your region
+
+- Open **Azure Portal** and type **Network Watcher** on **Search** bar. Press **Enter**
+
+- On **Region** click to expand. Check if **East US** is enabled. If not click on "..." and the click **Enable network watcher** 
+
+![img41](/img/img41.png)
+
+> Note: if you cannot enable Network watcher then just follow this [documentation](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-create) to manually register.
+
+> 2. Forward NSG flow logs
+
+- Locate the menu **Logs** and then click on **NSG flow logs**. Select the Resource Group **LABSECURITY**. The NSG **APPGLABSECURITY** will shown.
+
+![img42](/img/img42.png)
+
+- Click on **APPGLABSECURITY** NSG and use the following parameters:
+- - Status: ON
+- - Flow Logs version: Version 2
+- - Storage Account: select t
 
 
 [enable region]
