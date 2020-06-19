@@ -341,6 +341,12 @@ If you don't need this control then you can create your Application Gateway w/ W
 
 > Click **Create**
 
+Wait few minutes to finish the deployment (˜10min) and then click on **APPGW** (located on your Resource Group). You can see the public IP address assigned to App Gateway. Take note of this IP address and then access using **Internet Explorer** on **VM01**. This is just a test to make sure that the traffic to DVWA is handled by Application Gateway w/ WAF.
+
+![img32](/img/img32.png)
+
+
+
 
 
 [wafv1]
