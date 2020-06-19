@@ -256,10 +256,90 @@ Open Azure Portal, click New and type **Log Analytics Workspace** . Click **Crea
 
 Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications.Also includes Web Application Firewall (WAF), a service that provides centralized protection of your web applications from common exploits and vulnerabilities.
 
-1. Deploy Application Gateway w/ WAF
+> 1. Deploy Application Gateway w/ WAF
 
-For this workshop you will deploy **Application Gateway w/ WAF V1** to detect attacks to DVWA VM. The reason to use Application Gateway V1 instead of V2 is about the possibility to restrict access to public address. Application Gateway will publish a Public IP Address but it's not so simple to restrict wich IP Address can access this environment. It's very useful if you want to test for a long time but don't want anyone from internet to access the DVWA (the credentials to access DVWA are simple). Using Application Gateway V1 it's possible to restrict this traffic using **Network Security Group (NSG)**. Of course it means that you need to change your NSG Rule every time your Public IP Address (from your ISP connection) change. 
+For this workshop you will deploy **Application Gateway w/ WAF V1** to detect attacks to DVWA VM. The reason to use Application Gateway V1 instead of V2 is about the possibility to restrict access to specific public IP address. Application Gateway will publish a Public IP Address but it's not so simple to restrict wich IP Address can access this environment. It's very useful if you want to test for a long time but don't want anyone from internet to access the DVWA (the credentials to access DVWA are simple). Using Application Gateway V1 it's possible to restrict this traffic using **Network Security Group (NSG)**. Of course it means that you need to change your NSG Rule every time your Public IP Address (from your ISP connection) change. 
 If you don't need this control then you can create your Application Gateway w/ WAF V2. 
+
+- Open **Azure Portal**, click **Create a resource** and type **Application Gateway** . Click **Create**
+
+![img26](/img/img26.png)
+
+- Use the following parameters for **Basic**
+- - Resource Group: LABSECURITY
+- - Application gateway name: APPGW
+- - Region: East US
+- - Tier: WAF
+- - Instance count: 1
+- - SKU size: Medium
+- - Firewall status: Enabled
+- - Firewall mode: Prevention
+- - HTTP2: Disabled
+- - Virtual network: VNETCORP
+- - Subnet: AppGw (10.0.1.0/24)
+
+![img27](/img/img27.png)
+
+> Click **Next: Frontends**
+
+- Use the following parameters for **Frontends**
+- - Frontend IP address: Public
+- - Public IP Address: click **Add new**
+- - - Name: PUBIPDVWA
+- - - Click **OK**
+
+![img28](/img/img28.png)
+
+> Click **Next: Backends**
+
+- Use the following parameters for **Backends**
+
+- - Click **Add a backend pool**
+- - - Name: BACKENDDVWA
+- - - Add backend pool without targets: No
+- - - BackEnd Targets
+- - - - Target type: Virtual Machine
+- - - - Target: dvwa*** (10.0.0.4)
+- - - - Click **Add**
+
+![img29](/img/img29.png)
+
+> Click **Next: Configuration**
+
+> Click **Add a routing rule**
+
+![img30](/img/img30.png)
+
+- Use the following parameters for **Add a routing rule**
+- - Rule name: RULEDVWA
+- - Listener name: LISTENERDVWA
+- - Frontend IP: select **Public**
+- - Protocol: HTTP
+- - Port: 80
+- - Listener type: Basic
+- - Error page url: No
+- - Click **Backend targets**
+- - - Target type: Backend pool
+- - - Backend target: select **BACKENDDVWA**
+- - - HTTP settings: click **Add new**
+- - - - HTTP settings name: HTTPSETTINGSDVWA
+- - - - Backend protocol: HTTP
+- - - - Backend port: 80
+- - - - Cookie-based affinity: Disable
+- - - - Connection draining: Disable
+- - - - Request time-out (seconds): 20
+- - - - Override backend path: blank
+- - - - Override with new host name: No
+- - - - Click **Add**
+- - - Click **Add**
+
+[img31](/img/img31.png)
+
+> Click **Next: Tags**
+> Click **Next: Review + create**
+> Click **Create**
+
+
 
 [wafv1]
 [create NSG for AppGw Subnet]
