@@ -467,7 +467,24 @@ Firts create a storage account. This will be used to retain logs.
 - Click on **APPGLABSECURITY** NSG and use the following parameters:
 - - Status: ON
 - - Flow Logs version: Version 2
-- - Storage Account: select t
+- - Storage Account: select **storagelabsecurity** or any other name that you had choosen before
+- - Retention: 30
+- - Traffic Analytics status: On
+- - Traffic Analytics processing interval: Every 1 hour
+- - - Note: you can change later to "every 10min" but for the first ingestion is recommended to wait at least few hours before making any change
+- - Log Analytics workspace: select **WORKSPACESECURITY01**
+- Click **Save**
+
+![img49](/img/img49.png)
+
+> 3. Forward Diagnostics logs
+
+- Locate the menu **Logs** and then click on **Diagnostic logs**. Select the Resource Group **LABSECURITY**.
+
+![img50](/img/img50.png)
+
+
+
 
 
 [enable region]
