@@ -252,7 +252,7 @@ Open Azure Portal, click New and type **Log Analytics Workspace** . Click **Crea
 ![img18](/img/img18.png)
 
 
-### Step 3 | Deploy Application Gateway w/ WAF ###
+### Step 3 | Deploy Application Gateway w/ Web Application Firewall(WAF) ###
 
 Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications.Also includes Web Application Firewall (WAF), a service that provides centralized protection of your web applications from common exploits and vulnerabilities.
 
@@ -392,30 +392,23 @@ Now you can open again the Resource Group **LABSECURITY** and click on **NSG** *
 
 ![img40](/img/img40.png)
 
+> Note: Now you have Application Gateway forwarding to DVWA VM and only allowing access from your Public IP. Next step you will forward logs from NSG and Application Gateway to Log Analytics.
 
 
+### Step 4 | Configure Network Watcher ###
 
 
-
-
-
-
-[wafv1]
-[create NSG for AppGw Subnet]
-[Prevention mode]
-[test connectivity]
-
-### Step 4 | Configure Security Center ###
-
-[change converage]
-[add security solution]
-
-### Step 5 | Configure Network Watcher ###
 
 [enable region]
 [configure NSG FLow logs - AppGw, NSG]
 [diagnostic logs]
 [Traffic analytics]
+
+### Step 5 | Configure Security Center ###
+
+[change converage]
+[add security solution]
+
 
 ### Step 6 | Configure Azure Sentinel ###
 
