@@ -345,6 +345,40 @@ Wait few minutes to finish the deployment (˜10min) and then click on **APPGW** 
 
 ![img32](/img/img32.png)
 
+> Note: This **Frontend public IP address** is fake. 
+
+> 2. Restrict access to Application Gateway (optional)
+
+As explained before if you want to restrict wich IP address from internet can access the DVWA then you need to configure the **Network Security Group**. If not just ignore this step.
+
+- Open **Azure Portal** and then click **Create a resource**. Type **Network security group** and then click **Create**
+
+![img33](/img/img33.png)
+
+- Use the following parameters for **Create network security group**
+- - Resource Group: LABSECURITY
+- - Name: APPGWLABSECURITY
+- - Region: East US
+- - Click **Next: Tags**
+- - Click **Next: Review + create**
+- - Click **Create**
+
+![img34](/img/img34.png)
+
+Now you can open again the Resource Group **LABSECURITY** and click on **NSG** **APPLABSECURITY**
+
+- Open NSG **APPGLABSECURITY** and use the following rules (only **Inbound Security rules**)
+
+![img35](/img/img35.png)
+
+> Note: You must change your rule **AccessFromHome** (field **Source IP address**) and use your Public IP address that you are using. You can easily find this just openning **Google** and typing **what is my ip**. This is the IP Address that you will need to insert on **Source IP address** field.
+
+![img36](/img/img36.png)
+
+
+
+
+
 
 
 
