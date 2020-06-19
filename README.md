@@ -333,7 +333,7 @@ If you don't need this control then you can create your Application Gateway w/ W
 - - - - Click **Add**
 - - - Click **Add**
 
-[img31](/img/img31.png)
+![img31](/img/img31.png)
 
 > Click **Next: Tags**
 > Click **Next: Review + create**
