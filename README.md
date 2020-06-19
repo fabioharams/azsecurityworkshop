@@ -1,13 +1,19 @@
 # Security Workshop | Azure (under development)
 This workshop contains instructions to test resources on Azure like:
 - Application Gateway
+  - Build secure, scalable, and highly available web front ends in Azure
 - Web Application Firewall (WAF)
+  - A cloud-native web application firewall (WAF) service that provides powerful protection for web apps
 - Log Analytics
+  - Full observatility into your applications, infrastructure, and network
 - Azure Security Center
+  - Unify security management and enable advanced threat protection across hybrid cloud workloads
 - Azure Sentinel
+  - Put cloud-native SIEM and intelligent security analytics to work to help rptect your enterprise
 - Network Watcher
+  - Network performance monitoring and diagnostics solution
 
-To test this scenario a virtual machine running UBUNTU with DVWA (Damn Vulnerable Web Application) will be used to test vulnerabilities.
+To test this scenario a virtual machine running UBUNTU with DVWA (Damn Vulnerable Web Application) will be used to detect vulnerabilities.
 
 ## Overview of the environment ##
 
@@ -510,12 +516,12 @@ If you have time just wait few hours and click on **Traffic Analytics** option o
 
 ![img55](/img/img55.png)
 
-[enable region]
-[configure NSG FLow logs - AppGw, NSG]
-[diagnostic logs]
-[Traffic analytics]
 
 ### Step 5 | Configure Security Center ###
+
+
+
+
 
 [change converage]
 [add security solution]
