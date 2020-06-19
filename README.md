@@ -166,6 +166,7 @@ Open Azure Portal, click New and type **Log Analytics Workspace** . Click **Crea
 
 ![img17](/img/img17.png)
 
+![img18](/img/img18.png)
 
 
 ### Step 3 | create App Gateway ###
