@@ -371,9 +371,26 @@ Now you can open again the Resource Group **LABSECURITY** and click on **NSG** *
 
 ![img35](/img/img35.png)
 
-> Note: You must change your rule **AccessFromHome** (field **Source IP address**) and use your Public IP address that you are using. You can easily find this just openning **Google** and typing **what is my ip**. This is the IP Address that you will need to insert on **Source IP address** field.
+- - Rule **AppGwProbe**
 
 ![img36](/img/img36.png)
+
+- - Rule **AccessFromHome**
+
+![img37](/img/img37.png)
+
+- - Rule **AzureLoadBalancerProbe**
+
+![img38](/img/img38.png)
+
+- - Rule **YouShallNotPass**
+
+![img39](/img/img39.png)
+
+
+> Note: You must change your rule **AccessFromHome** (field **Source IP address**) and use your Public IP address that you are using. You can easily find this just openning **Google** and typing **what is my ip**. This is the IP Address that you will need to insert on **Source IP address** field.
+
+![img40](/img/img40.png)
 
 
 
