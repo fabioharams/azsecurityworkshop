@@ -232,8 +232,7 @@ Click **Create / Reset Database**. You will see that the database is created and
 
 ![img25](/img/img25.png)
 
-
-
+At this moment we have our DVWA VM ready. Follow the next steps to prepare the monitoring. 
 
 
 ### Step 2 | Create Log Analytics workspace ###
@@ -243,6 +242,8 @@ All logs will be forwarded to Log Analytics and it's a requirement for Azure Sen
 > 1. Create Workspace
 
 Open Azure Portal, click New and type **Log Analytics Workspace** . Click **Create** and use these parameters:
+
+> Note: Make sure to use the same **Resource Group** and **Region**
 
 ![img16](/img/img16.png)
 
@@ -255,8 +256,10 @@ Open Azure Portal, click New and type **Log Analytics Workspace** . Click **Crea
 
 Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications.Also includes Web Application Firewall (WAF), a service that provides centralized protection of your web applications from common exploits and vulnerabilities.
 
-> Note: 
-Application Gateway will publish a Public IP Address but it's not so simple to restrict wich IP Address can access this environment. It's very useful if you want to test for a long time but don't want anyone from internet to access the DVWA (the credentials to access DVWA are simple). 
+1. Deploy Application Gateway w/ WAF
+
+For this workshop you will deploy **Application Gateway w/ WAF V1** to detect attacks to DVWA VM. The reason to use Application Gateway V1 instead of V2 is about the possibility to restrict access to public address. Application Gateway will publish a Public IP Address but it's not so simple to restrict wich IP Address can access this environment. It's very useful if you want to test for a long time but don't want anyone from internet to access the DVWA (the credentials to access DVWA are simple). Using Application Gateway V1 it's possible to restrict this traffic using **Network Security Group (NSG)**. Of course it means that you need to change your NSG Rule every time your Public IP Address (from your ISP connection) change. 
+If you don't need this control then you can create your Application Gateway w/ WAF V2. 
 
 [wafv1]
 [create NSG for AppGw Subnet]
