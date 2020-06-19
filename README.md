@@ -29,6 +29,8 @@ You can use any public region because the features on this lab doesn't require a
 
 ![img1](/img/img1.png)
 
+___
+
 > 2. Create VNET and Subnets
 
 Create a VNET in the same region of Resource Group with the following settings bellow:
@@ -47,6 +49,9 @@ Create a VNET in the same region of Resource Group with the following settings b
 Note: you can create Bastion Host (and the Subnet) during the creation of VNET. I recommend you to do this later because you can use the same steps to do in other VNETs. Feel free to do if you have more experience on Azure VNET
 
 ![img2](/img/img2.png)
+
+___
+   
 
 > 3. Create Linux VM for DVWA
 
@@ -71,6 +76,8 @@ Note: you can create Bastion Host (and the Subnet) during the creation of VNET. 
 
 ![img10](/img/img10.png)
 
+___
+
 > 4. Enable Azure Bastion
 
 Follow these steps to use Azure Bastion. This is importante because the VM was created without Public IP address.
@@ -89,11 +96,16 @@ Link: https://docs.microsoft.com/en-us/azure/bastion/bastion-create-host-portal
 
 > If you want to automate all the steps to create this environment then you can use the **template** folder located [here](https://github.com/fabioharams/azsecurityworkshop/tree/master/template)
 
+___
+
+
 ## Start the lab ##
 
 > ### Step 1 | Install DVWA on UBUNTU ###
 
 DVWA (Damn Vulnerable Web Application) is a PHP/MySql web application very popular to train security specialists against vulnerabilities. For more information about DVWA please click **[here](https://github.com/ethicalhack3r/DVWA)**.
+
+___
 
 1. Connect to Ubuntu VM using Azure Bastion
 
@@ -110,11 +122,15 @@ Open **Azure Portal**, select the Ubuntu Virtual Machine created previously (**D
 
 ![img15](/img/img15.png)
 
+___
+
 2. Update Ubuntu
 
 It's recommended to update Ubuntu (or any Virtual Machine) after installation. Execute the following command to update
 
 > <code> sudo apt update && sudo apt upgrade -y </code> 
+
+___
 
 3. Download MySQL, PHP and Apache
 
@@ -126,13 +142,19 @@ Return to **home** folder
 
 > <code>cd ~</code>
 
+___
+
 4. Clone the DVWA repository:
 
 > <code> git clone --recurse-submodules https://github.com/ethicalhack3r/DVWA.git</code>
 
+___
+
 5. Remove the default web page created by Apache
 
 > <code>sudo rm /var/www/html/index.html</code>
+
+___
 
 6. Copy the downloaded files to a new folder and after that change to folder
 
@@ -140,11 +162,15 @@ Return to **home** folder
 
 > <code>cd /var/www/html</code>
 
+___
+
 7. Copy the config file for DVWA
 
 > <code>sudo cp config/config.inc.php.dist config/config.inc.php</code>
 
 Done! now you can connect from other Virtual Machine on Azure (using Azure Bastion) and test if DVWA is up and running (the setup for DVWA require a browser). The DVWA virtual machine doesn't have a Public IP Address so you will need a VM with browser to access and finish the configuration (or adjust anything else you want on DVWA)
+
+___
 
 8. Create a Windows Server 2016/2019 VM using the following parameters:
 
@@ -159,6 +185,8 @@ Done! now you can connect from other Virtual Machine on Azure (using Azure Basti
 - Password: Azsecworkshop!
 
 > Note: The NSG LABSEC and Vnet/Subnet already exists and must be used to accomplish other labs.
+
+___
 
 9. Check DVWA
 
@@ -240,10 +268,13 @@ Click **Create / Reset Database**. You will see that the database is created and
 
 At this moment we have our DVWA VM ready. Follow the next steps to prepare the monitoring. 
 
+___
 
 ### Step 2 | Create Log Analytics workspace ###
 
 All logs will be forwarded to Log Analytics and it's a requirement for Azure Sentinel, Network Watcher, etc. Follow the steps bellow to create your Log Analytics Workspace.
+
+___
 
 > 1. Create Workspace
 
@@ -257,10 +288,13 @@ Open Azure Portal, click New and type **Log Analytics Workspace** . Click **Crea
 
 ![img18](/img/img18.png)
 
+___
 
 ### Step 3 | Deploy Application Gateway w/ Web Application Firewall(WAF) ###
 
 Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications.Also includes Web Application Firewall (WAF), a service that provides centralized protection of your web applications from common exploits and vulnerabilities.
+
+___
 
 > 1. Deploy Application Gateway w/ WAF
 
@@ -353,6 +387,8 @@ Wait few minutes to finish the deployment (˜10min) and then click on **APPGW** 
 
 > Note: This **Frontend public IP address** is fake. 
 
+___
+
 > 2. Restrict access to Application Gateway (optional)
 
 As explained before if you want to restrict wich IP address from internet can access the DVWA then you need to configure the **Network Security Group**. If not just ignore this step.
@@ -400,6 +436,7 @@ Now you can open again the Resource Group **LABSECURITY** and click on **NSG** *
 
 > Note: Now you have Application Gateway forwarding to DVWA VM and only allowing access from your Public IP. Next step you will forward logs from NSG and Application Gateway to Log Analytics.
 
+___
 
 ### Step 4 | Forward Logs ###
 
@@ -452,7 +489,7 @@ Firts create a storage account. This will be used to retain logs.
 
 ![img48](/img/img48.png)
 
-
+___
 
 > 1. Enable Network Watcher on your region
 
@@ -463,6 +500,8 @@ Firts create a storage account. This will be used to retain logs.
 ![img41](/img/img41.png)
 
 > Note: if you cannot enable Network watcher then just follow this [documentation](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-create) to manually register.
+
+___
 
 > 2. Forward NSG flow logs
 
@@ -482,6 +521,8 @@ Firts create a storage account. This will be used to retain logs.
 - Click **Save**
 
 ![img49](/img/img49.png)
+
+___
 
 > 3. Forward Diagnostics logs
 
@@ -516,6 +557,7 @@ If you have time just wait few hours and click on **Traffic Analytics** option o
 
 ![img55](/img/img55.png)
 
+___
 
 ### Step 5 | Configure Security Center ###
 
