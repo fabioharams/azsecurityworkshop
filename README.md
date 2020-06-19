@@ -483,9 +483,32 @@ Firts create a storage account. This will be used to retain logs.
 
 ![img50](/img/img50.png)
 
+- Click on **APPGW** and then on **+ Add diagnostic setting**
 
+![img51](/img/img51.png)
 
+- Use the following parameters:
+- - Diagnostic settings name: APPGWDIAG
+- - Check all 3 checkboxes for **log**
+- - also check **AllMetrics** for **metric**
+- - on **destination details** select **Send to Log Analytics**. Make sure that **WORKSPACESECURITY01** . Click **Save**
 
+![img52](/img/img52.png)
+
+- Enable Diagnostic logs for the rest of the resources
+
+Repeat the steps for all resources. Use the same **Storage Account** and **Log Analytics Workspace**. You can use any name for **Diagnostics settings name** you want. 
+After configuring all resources you will have something like this:
+
+![img53](/img/img53.png)
+
+- (Optional) Enable Traffic Analytics
+
+If you have time just wait few hours and click on **Traffic Analytics** option on **Logs**. This dashboard show all the traffic to your public resources on Azure. Also you can check malicious flow to your resources on Azure, etc.
+
+![img54](/img/img54.png)
+
+![img55](/img/img55.png)
 
 [enable region]
 [configure NSG FLow logs - AppGw, NSG]
