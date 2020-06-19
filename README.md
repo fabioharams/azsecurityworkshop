@@ -204,6 +204,35 @@ Find line 837 and change the parameter **allow_url_include = Off** to **allow_ur
 
 Exit **vi** by pressing **ESC** button and type **:wq**
 
+- Setup permission (MySQL)
+
+Now you can access again the **DVWA** VM through **Azure Bastion**. Type the following commands to setup the required permission:
+
+> <code>sudo mysql -uroot</code>
+
+> <code>DROP USER 'root'@'localhost';</code>
+
+> <code>CREATE USER 'root'@'localhost' IDENTIFIED BY 'p@ssw0rd';</code>
+
+> <code>GRANT ALL PRIVILEGES ON *.* TO 'root'@'localhost' WITH GRANT OPTION;</code>
+
+> <code>FLUSH PRIVILEGES;</code>
+
+> <code>exit</code>
+
+Now you are ready to return to **VM01** and create the database
+
+- Create database
+
+Open **Azure Portal** , select **VM01** and connect using **Azure Bastion**. Once you are connected then open **Internet Explorer** and access the URL **http://10.0.0.4**.
+
+![img24](/img/img24.png)
+
+Click **Create / Reset Database**. You will see that the database is created and will be redirected to login screen again. Logon again and the DVWA page will appear.
+
+![img25](/img/img25.png)
+
+
 
 
 
