@@ -561,6 +561,26 @@ ___
 
 ### Step 5 | Configure Security Center ###
 
+Security Center can monitor both Azure and on-premises resources. First it's necessary to onboard the Azure Subscription to Standard,
+
+___
+
+> 1. Onboard Azure Subscription
+
+Follow the steps bellow to enable **Standard** Tier. By default any Azure subscription is **Free**. 
+
+Link: https://docs.microsoft.com/en-us/azure/security-center/security-center-get-started
+
+___
+
+> 2. Add Azure Application gateway WAF
+
+On **Azure Security Center** click on **Security Solution** (located on **RESOURCE SECURITY HYGIENE**). Click on **ADD** button on **Azure Application Gateway WAF**. After taht click on **Create**
+
+![img56](/img/img56.png)
+
+
+
 
 
 
