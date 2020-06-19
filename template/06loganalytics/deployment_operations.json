@@ -1,0 +1,32 @@
+[
+  {
+    "id": "/subscriptions/6a537a07-6a03-4d2e-a2b1-d9de007d0e24/resourceGroups/LABSECURITY/providers/Microsoft.Resources/deployments/Microsoft.LogAnalyticsOMS/operations/79CCEE37569B4434",
+    "operationId": "79CCEE37569B4434",
+    "properties": {
+      "provisioningOperation": "Create",
+      "provisioningState": "Succeeded",
+      "timestamp": "2020-06-19T02:03:41.025881Z",
+      "duration": "PT27.5801967S",
+      "trackingId": "6f0dc461-6a35-49a5-a76b-5898271439e3",
+      "statusCode": "OK",
+      "targetResource": {
+        "id": "/subscriptions/6a537a07-6a03-4d2e-a2b1-d9de007d0e24/resourceGroups/LABSECURITY/providers/Microsoft.OperationalInsights/workspaces/WORKSPACESECURITY01",
+        "resourceType": "Microsoft.OperationalInsights/workspaces",
+        "resourceName": "WORKSPACESECURITY01"
+      }
+    }
+  },
+  {
+    "id": "/subscriptions/6a537a07-6a03-4d2e-a2b1-d9de007d0e24/resourceGroups/LABSECURITY/providers/Microsoft.Resources/deployments/Microsoft.LogAnalyticsOMS/operations/08586090746971864030",
+    "operationId": "08586090746971864030",
+    "properties": {
+      "provisioningOperation": "EvaluateDeploymentOutput",
+      "provisioningState": "Succeeded",
+      "timestamp": "2020-06-19T02:03:41.2100414Z",
+      "duration": "PT0.0493305S",
+      "trackingId": "69537a2f-72c1-4efd-8cac-448b2d0a10e3",
+      "statusCode": "OK",
+      "statusMessage": null
+    }
+  }
+]

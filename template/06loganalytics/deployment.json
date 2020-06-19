@@ -1,0 +1,58 @@
+{
+  "id": "/subscriptions/6a537a07-6a03-4d2e-a2b1-d9de007d0e24/resourceGroups/LABSECURITY/providers/Microsoft.Resources/deployments/Microsoft.LogAnalyticsOMS",
+  "name": "Microsoft.LogAnalyticsOMS",
+  "type": "Microsoft.Resources/deployments",
+  "tags": {
+    "primaryResourceId": "/subscriptions/6a537a07-6a03-4d2e-a2b1-d9de007d0e24/resourcegroups/LABSECURITY/providers/Microsoft.OperationalInsights/workspaces/WORKSPACESECURITY01",
+    "marketplaceItemId": "Microsoft.LogAnalyticsOMS"
+  },
+  "properties": {
+    "templateHash": "11463598216708868146",
+    "parameters": {
+      "name": {
+        "type": "String",
+        "value": "WORKSPACESECURITY01"
+      },
+      "location": {
+        "type": "String",
+        "value": "eastus"
+      },
+      "sku": {
+        "type": "String",
+        "value": "pergb2018"
+      },
+      "tags": {
+        "type": "Object",
+        "value": {}
+      }
+    },
+    "mode": "Incremental",
+    "debugSetting": {
+      "detailLevel": "None"
+    },
+    "provisioningState": "Succeeded",
+    "timestamp": "2020-06-19T02:03:41.2379745Z",
+    "duration": "PT32.9467704S",
+    "correlationId": "7eb28f6c-f8cf-4e34-a493-e204d33d15fd",
+    "providers": [
+      {
+        "namespace": "Microsoft.OperationalInsights",
+        "resourceTypes": [
+          {
+            "resourceType": "workspaces",
+            "locations": [
+              "eastus"
+            ]
+          }
+        ]
+      }
+    ],
+    "dependencies": [],
+    "outputResources": [
+      {
+        "id": "/subscriptions/6a537a07-6a03-4d2e-a2b1-d9de007d0e24/resourceGroups/LABSECURITY/providers/Microsoft.OperationalInsights/workspaces/WORKSPACESECURITY01"
+      }
+    ],
+    "validationLevel": "Template"
+  }
+}

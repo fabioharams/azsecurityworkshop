@@ -140,23 +140,76 @@ Return to **home** folder
 
 Done! now you can connect from other Virtual Machine on Azure (using Azure Bastion) and test if DVWA is up and running (the setup for DVWA require a browser). The DVWA virtual machine doesn't have a Public IP Address so you will need a VM with browser to access and finish the configuration (or adjust anything else you want on DVWA)
 
-- Create a Windows Server 2016/2019 VM using the following parameters:
-- - Computer name: WS01
-- - Vnet: VNETCORP
-- - Subnet: Default (10.0.0.0/24)
-- - Public IP Address: None
-- - Configure Network Security Group (NSG): LABSEC
-- - Public Inbound Ports: None
-- - OS Disk Type: Standard SSD
-- - Username: Azuser1
-- - Password: Azsecworkshop!
+8. Create a Windows Server 2016/2019 VM using the following parameters:
+
+- Computer name: WS01
+- Vnet: VNETCORP
+- Subnet: Default (10.0.0.0/24)
+- Public IP Address: None
+- Configure Network Security Group (NSG): LABSEC
+- Public Inbound Ports: None
+- OS Disk Type: Standard SSD
+- Username: Azuser1
+- Password: Azsecworkshop!
 
 > Note: The NSG LABSEC and Vnet/Subnet already exists and must be used to accomplish other labs.
+
+9. Check DVWA
+
+- Open Azure Portal and then select the WS01 VM. Click on **Connect** button, input the credentials used on Step 8 and click **Connect**. The Server Manager will appear. 
+
+![img19](/img/img19.png)
+
+- On the left side of **Server Manager** click on **Local Server**. Click on **IE Enhanced Security Configuration**. Change to **Off* for both Administrators and Users.
+
+![img20](/img/img20.png)
+
+![img21](/img/img21.png)
+
+- Check the Private IP Address of DVWA VM
+
+Open Azure Portal, click on DVWA virtual machine  and take note of Private IP Address. Probably the IP address will be **10.0.0.4** .
+
+![img22](/img/img22.png)
+
+- Access DVWA through VM01
+
+Use VM01 to check if DVWA is up and running. Connect to VM01 using Azure Bastion, open **Internet Explorer** and then type **10.0.0.4** on URL. This will open the DVWA login screen.
+
+> Note: Do not click on **Create / Reset Database** yet because you first need to setup permissions
+
+![img23](/img/img23.png)
+
+- Access DVWA using Azure Bastion
+
+Connect on DVWA VM using Azure Bastion and type the following commands
+
+> <code>cd /var/www/html</code>
+
+> <code>sudo chmod 757 /var/www/html/hackable/uploads/</code>
+
+> <code>sudo chmod 646 /var/www/html/external/phpids/0.6/lib/IDS/tmp/phpids_log.txt</code>
+
+> <code>sudo chmod 757 /var/www/html/config</code>
+
+Do not disconnect. You will continue on next step
+
+- Adjust PHP
+
+Open **vi** with **sudo** and edit the settings for pho file
+
+> <code>sudo vi /etc/php/7.2/apache2/php.ini</code>
+
+Find line 837 and change the parameter **allow_url_include = Off** to **allow_url_include = On**
+
+Exit **vi** by pressing **ESC** button and type **:wq**
+
+
 
 
 ### Step 2 | Create Log Analytics workspace ###
 
-All logs will be forwarded to Log Analytics and it's a requirement for Azure Sentinel, Network Watcher, etc. Follow he steps bellow to create your Log Analytics Workspace.
+All logs will be forwarded to Log Analytics and it's a requirement for Azure Sentinel, Network Watcher, etc. Follow the steps bellow to create your Log Analytics Workspace.
 
 > 1. Create Workspace
 
@@ -168,9 +221,13 @@ Open Azure Portal, click New and type **Log Analytics Workspace** . Click **Crea
 
 ![img18](/img/img18.png)
 
-.
 
-### Step 3 | create App Gateway ###
+### Step 3 | Deploy Application Gateway w/ WAF ###
+
+Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications.Also includes Web Application Firewall (WAF), a service that provides centralized protection of your web applications from common exploits and vulnerabilities.
+
+> Note: 
+Application Gateway will publish a Public IP Address but it's not so simple to restrict wich IP Address can access this environment. It's very useful if you want to test for a long time but don't want anyone from internet to access the DVWA (the credentials to access DVWA are simple). 
 
 [wafv1]
 [create NSG for AppGw Subnet]
@@ -194,3 +251,5 @@ Open Azure Portal, click New and type **Log Analytics Workspace** . Click **Crea
 [add workspace]
 [enable data connector]
 [save workbook]
+
+### step 7 | Appgw ###
