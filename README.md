@@ -573,20 +573,29 @@ Link: https://docs.microsoft.com/en-us/azure/security-center/security-center-get
 
 ___
 
-> 2. Add Azure Application gateway WAF
+> 2. Add Azure Application Gateway WAF source
 
-On **Azure Security Center** click on **Security Solution** (located on **RESOURCE SECURITY HYGIENE**). Click on **ADD** button on **Azure Application Gateway WAF**. After taht click on **Create**
+On **Azure Security Center** click on **Security Solution** (located on **RESOURCE SECURITY HYGIENE**). Click on **ADD** button on **Azure Application Gateway WAF**. After that click on **Create**
 
 ![img56](/img/img56.png)
 
+___
 
+> 3. Enable data collection on Log Analytics workspace
 
+- Click on **Pricing & settings** and then click on your workspace **WORKSPACESECURITY01**
 
+![img57](/img/img57.png)
 
+- Click on **Standard** and click **Save**
 
+![img58](/img/img58.png)
 
-[change converage]
-[add security solution]
+- On the left side click on **Data collection** and select **All Events** . Click **Save**
+
+![img59](/img/img59.png)
+
+___
 
 
 ### Step 6 | Configure Azure Sentinel ###
