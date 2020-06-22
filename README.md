@@ -15,7 +15,7 @@ This workshop contains instructions to test resources on Azure like:
 
 To test this scenario a virtual machine running UBUNTU with DVWA (Damn Vulnerable Web Application) will be used to detect vulnerabilities.
 
-## WARNING: The purpose of this lab is just to test detection and prevention on Application Gateway with WAF. Don't do this on any other resource instead of this lab ##
+## WARNING: The purpose of this lab is just to test detection and prevention on Application Gateway with WAF ##
 
 ## Overview of the environment ##
 
@@ -107,6 +107,11 @@ ___
 
 DVWA (Damn Vulnerable Web Application) is a PHP/MySql web application very popular to train security specialists against vulnerabilities. For more information about DVWA please click **[here](https://github.com/ethicalhack3r/DVWA)**.
 
+Thomas Laurenson created a nice post about how to install DVWA on UBUNTU and you can use to do the same on Azure. If you want more details you can find here:
+
+https://www.thomaslaurenson.com/blog/2018/07/12/installing-and-configuring-damn-vulnerable-web-application/ 
+
+
 ___
 
 1. Connect to Ubuntu VM using Azure Bastion
@@ -192,6 +197,7 @@ ___
 
 9. Check DVWA
 
+
 - Open Azure Portal and then select the WS01 VM. Click on **Connect** button, input the credentials used on Step 8 and click **Connect**. The Server Manager will appear. 
 
 ![img19](/img/img19.png)
@@ -222,11 +228,11 @@ Connect on DVWA VM using Azure Bastion and type the following commands
 
 > <code>cd /var/www/html</code>
 
-> <code>sudo chmod 757 /var/www/html/hackable/uploads/</code>
+> <code>sudo chmod 777 /var/www/html/hackable/uploads/</code>
 
-> <code>sudo chmod 646 /var/www/html/external/phpids/0.6/lib/IDS/tmp/phpids_log.txt</code>
+> <code>sudo chmod 777 /var/www/html/external/phpids/0.6/lib/IDS/tmp/phpids_log.txt</code>
 
-> <code>sudo chmod 757 /var/www/html/config</code>
+> <code>sudo chmod 777 /var/www/html/config</code>
 
 Do not disconnect. You will continue on next step
 
