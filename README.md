@@ -600,9 +600,48 @@ ___
 
 ### Step 6 | Configure Azure Sentinel ###
 
-[add workspace]
-[enable data connector]
-[save workbook]
+Now you can connect **Log Analytics Workspace** to **Sentinel**. Follow the steps bellow:
+
+> 1. Open **Azure Portal** and type **Sentinel** on **Search** bar.Click on **Azure Sentinel**.
+
+> 2. On **Azure Sentinel workspaces** click on **+Add** button, select **WORKSPACESECURITY01** and click again on **Add Azure Sentinel** button.
+
+![img60](/img/img60.png)
+
+> 3. The Azure Sentinel dashboard will appear
+
+![img61](/img/img61.png)
+
+> 4. On the left side click on **Data connectors** (Configuration panel). Select **Azure Security Center** and then click on **Open connector page** (right side).
+
+![img62](/img/img62.png)
+
+> 5. Click on **Connect**.
+
+![img63](/img/img63.png)
+
+> 6. This step may not be required if you had previously configured **Diagnostic Logs** for **Application Gatewa**. Inf not just follow here: on the left side click on **Data connectors** (Configuration panel). Select **Microsoft web application firewall(WAF)** and then click on **Open connector page** (right side).
+
+![img64](/img/img64.png)
+
+> 7. On **Azure Sentinel** click on **Workbooks** (located at the left side | Threat management).  On **Templates** click on **Microsoft Web Application Firewall (WAF) - firewall events** and then click on **Save** (rigth side)
+
+![img65](/img/img65.png)
+
+> 8. A pop-up will appear to **Save workbook to...** and you can choose the same region.
+
+> After saving you can click on **View saved workbook** on the right side. 
+
+![img67](/img/img67.png)
+
+> 9. Repeat the steps to add other 2 workbooks missing:
+
+- Microsoft Web Application Firewall (WAF) - gateway access events  
+- Microsoft Web Application Firewall (WAF) - overview  
+  
+  
+
+### Step 7 | Test attacks ###
 
 ##Simulate attacks##
 
@@ -647,15 +686,37 @@ ___
 <script>alert(“you have been hacked”)</script> </code>
 
 
-- Detect attacks
+### Step 8 | Detect attacks ###
 
+- List all actions blocked by WAF:
 ><code>
 search *  
-| where Type == "AzureDiagnostics"  
-| where (ruleSetType_s == "OWASP")  
 | where (action_s == "Blocked")
 </code>
 
+- Matched/Blocked requests by IP
+><code>
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.NETWORK" and Category == "ApplicationGatewayFirewallLog"
+| summarize count() by clientIp_s, bin(TimeGenerated, 1m)
+| render timechart
+</code>
 
 
+## More documents and links about this topic ###
+
+
+
+- https://docs.microsoft.com/en-us/azure/application-gateway/log-analytics
+- - Official documentation about query logs from Application Gateway with WAF
+- https://francescomolfese.it/en/2018/07/azure-application-gateway-come-monitorarlo-con-log-analytics/
+- - MVP Francesco Molfese developed a good guide about how to integrate App Gateway WAF with Log Analytics.
+- https://roykim.ca/2018/09/06/penetration-testing-your-web-app-with-azure-application-gateway-waf-part-3-log-analytics/
+- - MVP Roy Kim developed a good post about how to query logs from Application Gateway with WAF
+- https://owasp.org/www-community/attacks/
+- - OWASP Fpundatiuon link about attacks
+- https://github.com/ethicalhack3r/DVWA
+- - GitHub REPO
+- https://davidsr.me/index.php/2018/06/13/azure-waf-to-protect-your-web-application/
+- - David Sanchez developed a guide to test some vulnerabilities on Application gateway with WAF
 
