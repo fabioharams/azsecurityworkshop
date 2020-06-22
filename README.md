@@ -15,6 +15,8 @@ This workshop contains instructions to test resources on Azure like:
 
 To test this scenario a virtual machine running UBUNTU with DVWA (Damn Vulnerable Web Application) will be used to detect vulnerabilities.
 
+## WARNING: The purpose of this lab is just to test detection and prevention on Application Gateway with WAF. Don't do this on any other resource instead of this lab ##
+
 ## Overview of the environment ##
 
 [include diagram]
@@ -643,9 +645,9 @@ Now you can connect **Log Analytics Workspace** to **Sentinel**. Follow the step
 
 ### Step 7 | Test attacks ###
 
-##Simulate attacks##
+## Simulate attacks ##
+### Warning: Don't do this on any other resource instead of this lab ###
 
-###Detect attacks###
 
 - Vulnerability: Command injection  
 
