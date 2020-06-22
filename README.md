@@ -19,7 +19,8 @@ To test this scenario a virtual machine running UBUNTU with DVWA (Damn Vulnerabl
 
 ## Overview of the environment ##
 
-[include diagram]
+![diagram](/img/diagram.png)
+
 
 ## Prepare the environment ##
 
