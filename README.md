@@ -604,4 +604,30 @@ ___
 [enable data connector]
 [save workbook]
 
-### step 7 | Appgw ###
+##Simulate attacks##
+
+###Detect attacks###
+
+- Vulnerability: Command injection
+><code>127.0.0.1; ls -al</code>
+
+- Vulnerability: SQL Injection
+><code>%’ or 1=’1</code>
+
+- Vulnerability: Cross-Site Scripting
+><code>
+<script>alert(“you have been hacked”)</script> </code>
+
+
+- Detect attacks
+
+><code>
+search *  
+| where Type == "AzureDiagnostics"  
+| where (ruleSetType_s == "OWASP")  
+| where (action_s == "Blocked")
+</code>
+
+
+
+
