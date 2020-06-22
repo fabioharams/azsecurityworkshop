@@ -691,7 +691,7 @@ Now you can connect **Log Analytics Workspace** to **Sentinel**. Follow the step
 
 
 - Vulnerability: Cross-Site Scripting
-><code>
+><code> 
 <script>alert(“you have been hacked”)</script> </code>
 
 
@@ -700,18 +700,14 @@ Now you can connect **Log Analytics Workspace** to **Sentinel**. Follow the step
 - List all actions blocked by WAF:
 ><code>
 search *    
-
 | where (action_s == "Blocked")
 </code>
 
 - Matched/Blocked requests by IP
 ><code>
 AzureDiagnostics  
-
 | where ResourceProvider == "MICROSOFT.NETWORK" and Category == "ApplicationGatewayFirewallLog"  
-
 | summarize count() by clientIp_s, bin(TimeGenerated, 1m)  
-
 | render timechart  
 </code>
 
