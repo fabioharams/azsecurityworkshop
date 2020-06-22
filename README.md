@@ -608,11 +608,39 @@ ___
 
 ###Detect attacks###
 
-- Vulnerability: Command injection
-><code>127.0.0.1; ls -al</code>
+- Vulnerability: Command injection  
+
+- - Example 1
+  
+><code>127.0.0.1; ls -al</code>  
+
+- - Example 2
+
+><code>system("cd /var/yp && make &> /dev/null");</code>
+
 
 - Vulnerability: SQL Injection
+
+- - Example 1
+
 ><code>%’ or 1=’1</code>
+
+- - Example 2
+
+><code>SELECT * FROM members WHERE username = 'admin'--' AND password = 'password'</code>
+
+- - Example 3
+
+><code>SELECT /*!32302 1/0, */ 1 FROM tablename</code>
+
+- - Example 4
+
+><code>SELECT @@hostname;</code>
+
+- - Example 5
+
+><code>SELECT grantee, privilege_type, is_grantable FROM information_schema.user_privileges WHERE privilege_type = ‘SUPER’;SELECT host, user FROM mysql.user WHERE Super_priv = ‘Y’; # priv</code>
+
 
 - Vulnerability: Cross-Site Scripting
 ><code>
