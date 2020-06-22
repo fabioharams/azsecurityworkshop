@@ -699,16 +699,16 @@ Now you can connect **Log Analytics Workspace** to **Sentinel**. Follow the step
 
 - List all actions blocked by WAF:
 ><code>
-search *  
+search *    
 | where (action_s == "Blocked")
 </code>
 
 - Matched/Blocked requests by IP
 ><code>
-AzureDiagnostics
-| where ResourceProvider == "MICROSOFT.NETWORK" and Category == "ApplicationGatewayFirewallLog"
-| summarize count() by clientIp_s, bin(TimeGenerated, 1m)
-| render timechart
+AzureDiagnostics  
+| where ResourceProvider == "MICROSOFT.NETWORK" and Category == "ApplicationGatewayFirewallLog"  
+| summarize count() by clientIp_s, bin(TimeGenerated, 1m)  
+| render timechart  
 </code>
 
 
@@ -723,9 +723,9 @@ AzureDiagnostics
 - https://roykim.ca/2018/09/06/penetration-testing-your-web-app-with-azure-application-gateway-waf-part-3-log-analytics/
 - - MVP Roy Kim developed a good post about how to query logs from Application Gateway with WAF
 - https://owasp.org/www-community/attacks/
-- - OWASP Fpundatiuon link about attacks
+- - OWASP Foundation link about attacks
 - https://github.com/ethicalhack3r/DVWA
 - - GitHub REPO
 - https://davidsr.me/index.php/2018/06/13/azure-waf-to-protect-your-web-application/
-- - David Sanchez developed a guide to test some vulnerabilities on Application gateway with WAF
+- - David Sanchez developed a guide to test some vulnerabilities on Application Gateway with WAF
 
