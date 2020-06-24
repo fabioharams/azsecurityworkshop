@@ -720,8 +720,6 @@ AzureDiagnostics
 - - Official documentation about query logs from Application Gateway with WAF
 - https://francescomolfese.it/en/2018/07/azure-application-gateway-come-monitorarlo-con-log-analytics/
 - - MVP Francesco Molfese developed a good guide about how to integrate App Gateway WAF with Log Analytics.
-- https://roykim.ca/2018/09/06/penetration-testing-your-web-app-with-azure-application-gateway-waf-part-3-log-analytics/
-- - MVP Roy Kim developed a good post about how to query logs from Application Gateway with WAF
 - https://owasp.org/www-community/attacks/
 - - OWASP Foundation link about attacks
 - https://github.com/ethicalhack3r/DVWA
