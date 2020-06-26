@@ -702,7 +702,7 @@ All the commands to test are available on OWASP Foundation website (link bellow)
 
 - Vulnerability: Cross-Site Scripting
 ><code> 
-<script>alert(“you have been hacked”)</script> </code>
+<script>alert(“voce foi invadido”)</script> </code>
 
 
 ### Step 8 | Detect attacks ###
