@@ -23,6 +23,13 @@ This environment will support other workshops (under development):
 - Monitoring network
 - Securing containers (from AKS to Azure Container Registry)
 
+## Contributors ##
+
+- Francesco Molfese | Microsoft MVP
+- - https://www.linkedin.com/in/francescomolfese/ 
+
+- Rodrigo Immaginario | Microsoft MVP & Regional Director
+- - https://www.linkedin.com/in/rodrigoimmaginario/
 
 ## Overview of the environment ##
 
