@@ -1,5 +1,5 @@
 # Security Workshop | Azure (under development)
-This workshop contains instructions to test resources on Azure like:
+This workshop contain instructions to test resources on Azure like:
 - Application Gateway
   - Build secure, scalable, and highly available web front ends in Azure
 - Web Application Firewall (WAF)
@@ -13,9 +13,16 @@ This workshop contains instructions to test resources on Azure like:
 - Network Watcher
   - Network performance monitoring and diagnostics solution
 
-To test this scenario a virtual machine running UBUNTU with DVWA (Damn Vulnerable Web Application) will be used to detect vulnerabilities.
+To test this scenario a virtual machine running UBUNTU with DVWA (Damn Vulnerable Web Application) will be used to detect vulnerabilities. Also ARM Templates are available here: https://github.com/fabioharams/azsecurityworkshop/tree/master/template  
 
-## WARNING: The purpose of this lab is just to test detection and prevention on Application Gateway with WAF ##
+> Note: Presentation under development
+
+This environment will support other workshops (under development):
+
+- Monitoring virtual machines
+- Monitoring network
+- Securing containers (from AKS to Azure Container Registry)
+
 
 ## Overview of the environment ##
 
@@ -653,6 +660,9 @@ Now you can connect **Log Analytics Workspace** to **Sentinel**. Follow the step
 ### Step 7 | Test attacks ###
 
 ## Simulate attacks ##
+
+All the commands to test are available on OWASP Foundation website (link bellow)
+
 ### Warning: Don't do this on any other resource instead of this lab ###
 
 
@@ -696,6 +706,8 @@ Now you can connect **Log Analytics Workspace** to **Sentinel**. Follow the step
 
 
 ### Step 8 | Detect attacks ###
+
+Sample queries to detect actions blocked by WAF. More queries available bellow .
 
 - List all actions blocked by WAF:
 ><code>
