@@ -1,4 +1,4 @@
-# Security Workshop | Azure (under development)
+# Security Workshop | Azure
 This workshop contain instructions to test resources on Azure like:
 - Application Gateway
   - Build secure, scalable, and highly available web front ends in Azure
@@ -15,7 +15,7 @@ This workshop contain instructions to test resources on Azure like:
 
 To test this scenario a virtual machine running UBUNTU with DVWA (Damn Vulnerable Web Application) will be used to detect vulnerabilities. Also ARM Templates are available here: https://github.com/fabioharams/azsecurityworkshop/tree/master/template  
 
-> Note: Presentation under development
+> Note: Link for presentations available at the end of this document
 
 This environment will support other workshops (under development):
 
@@ -745,4 +745,24 @@ AzureDiagnostics
 - - GitHub REPO
 - https://davidsr.me/index.php/2018/06/13/azure-waf-to-protect-your-web-application/
 - - David Sanchez developed a guide to test some vulnerabilities on Application Gateway with WAF
+
+## Links to presentations - MS Ignite ##
+
+> Create a Microsoft TechCommunity account to access these contents (it's free)
+
+Azure Networking Basics
+https://myignite.techcommunity.microsoft.com/sessions/83202?source=sessions
+
+Modernize your SIEM in the cloud with Azure Sentinel
+https://myignite.techcommunity.microsoft.com/sessions/79817?source=sessions
+
+Protect your cloud workload from threats using Azure Security Center
+https://myignite.techcommunity.microsoft.com/sessions/81972?source=sessions
+
+Get visibility into your hybrid network with Network Watcher
+https://myignite.techcommunity.microsoft.com/sessions/83951?source=sessions
+
+Using Azure Web Application Firewall to protect your web applications and web APIs
+https://myignite.techcommunity.microsoft.com/sessions/82947?source=sessions
+
 
