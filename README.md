@@ -21,7 +21,11 @@ This environment will support other workshops (under development):
 
 - Monitoring virtual machines
 - Monitoring network
-- Securing containers (from AKS to Azure Container Registry)
+
+The second part of this workshop is available here:
+
+- Securing containers (from Azure Kubernetes Service to Azure Container Registry)
+- - https://github.com/fabioharams/azsecurityworkshop2
 
 ## Contributors ##
 
